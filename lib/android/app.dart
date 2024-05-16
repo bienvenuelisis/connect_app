@@ -10,6 +10,7 @@ class AndroidApp extends StatelessWidget {
     return const MaterialApp(
       title: "Connect App",
       home: ChatScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
