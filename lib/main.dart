@@ -1,7 +1,8 @@
+import 'dart:io' show Platform;
+
 import 'package:connect_app/android/app.dart';
 import 'package:connect_app/ios/app.dart';
 import 'package:flutter/material.dart';
-import 'dart:io' show Platform;
 
 void main() {
   runApp(const MainApp());
@@ -12,6 +13,7 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Platform.isAndroid ? AndroidApp() : IOSApp();
+    return const AndroidApp();
+    return Platform.isAndroid ? const AndroidApp() : const IOSApp();
   }
 }
