@@ -10,6 +10,9 @@ dependencies:
   flutter:
     sdk: flutter
 
+  encryption_lib:
+    git: "https://github.com/bienvenuelisis/connect_app_encryption_lib"
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
