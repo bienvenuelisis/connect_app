@@ -1,7 +1,10 @@
+import 'package:connect_app/android/functions/navigation.dart';
+import 'package:connect_app/commons/layouts/multi_platform_widget.dart';
+import 'package:connect_app/commons/widgets/app_icon_and_title.dart';
 import 'package:flutter/material.dart';
 
-import '../commons/navigation.dart';
-import 'onboarding_screen.dart';
+import '../../android/screens/onboarding_screen.dart' as android;
+import '../../ios/screens/onboarding_screen.dart' as ios;
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -12,8 +15,14 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
-  Duration duration = const Duration(seconds: 3);
   late AnimationController controller;
+  Duration duration = const Duration(seconds: 3);
+
+  @override
+  void dispose() {
+    controller.stop();
+    super.dispose();
+  }
 
   @override
   void initState() {
@@ -22,7 +31,10 @@ class _SplashScreenState extends State<SplashScreen>
     ).then(
       (_) => pushToAndRemoveAll(
         context,
-        const OnBoardingScreen(),
+        const MultiPlatformWidget(
+          android: android.OnBoardingScreen(),
+          ios: ios.OnBoardingScreen(),
+        ),
       ),
     );
     controller = AnimationController(
@@ -30,6 +42,10 @@ class _SplashScreenState extends State<SplashScreen>
       duration: duration,
     );
     controller.forward();
+    controller.repeat(
+      reverse: true,
+      min: 0.5,
+    );
     super.initState();
   }
 
@@ -37,32 +53,19 @@ class _SplashScreenState extends State<SplashScreen>
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    return Material(
+    return ColoredBox(
       color: theme.primaryColor,
       child: Center(
         child: AnimatedBuilder(
           animation: controller,
           builder: (context, child) {
-            return child!;
+            //print(controller.value);
+            return Transform.scale(
+              scale: controller.value * 1.5,
+              child: child!,
+            );
           },
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Icon(
-                Icons.connect_without_contact_rounded,
-                size: 54,
-              ),
-              const SizedBox(
-                width: 24,
-              ),
-              Text(
-                "Connect",
-                style: theme.textTheme.displayMedium?.copyWith(
-                  color: Colors.white,
-                ),
-              ),
-            ],
-          ),
+          child: const AppIconAndTitle(),
         ),
       ),
     );

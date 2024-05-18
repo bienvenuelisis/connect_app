@@ -1,3 +1,6 @@
+import 'package:connect_app/android/widgets/on_boarding_form.dart';
+import 'package:connect_app/commons/layouts/rounded_top_app_bar_layout.dart';
+import 'package:connect_app/commons/widgets/app_icon_and_title.dart';
 import 'package:flutter/material.dart';
 
 class OnBoardingScreen extends StatelessWidget {
@@ -5,28 +8,18 @@ class OnBoardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: Column(
+    return RoundedTopAppBarLayout(
+      appBar: Transform.scale(
+        scale: 0.9,
+        child: const AppIconAndTitle(),
+      ),
+      body: const Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text("Username or Email"),
-          TextField(
-            style: const TextStyle(
-              color: Colors.white,
-            ),
-            decoration: InputDecoration(
-              prefixIcon: const Icon(Icons.person),
-              suffixIcon: const Icon(Icons.visibility),
-              fillColor: Colors.grey,
-              filled: true,
-              constraints: const BoxConstraints(
-                maxHeight: 54,
-              ),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
-              ),
-            ),
+          Padding(
+            padding: EdgeInsets.only(top: 36),
+            child: OnBoardingForm(),
           ),
-          const Text("Password"),
         ],
       ),
     );

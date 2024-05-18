@@ -1,7 +1,8 @@
+import 'package:connect_app/commons/constants/constants.dart';
 import 'package:flutter/material.dart';
 
-import 'commons/theme.dart';
-import 'screens/splash_screen.dart';
+import 'core/theme.dart';
+import '../commons/screens/splash_screen.dart';
 
 class AndroidApp extends StatelessWidget {
   const AndroidApp({super.key});
@@ -9,7 +10,7 @@ class AndroidApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Connect App",
+      title: appTitle,
       home: const SplashScreen(),
       debugShowCheckedModeBanner: false,
       theme: androidLightTheme,
