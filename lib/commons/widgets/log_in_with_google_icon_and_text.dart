@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 class LogInWithGoogleIconAndText extends StatelessWidget {
   const LogInWithGoogleIconAndText({
     super.key,
+    this.text = "Login with Google",
   });
+
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +21,7 @@ class LogInWithGoogleIconAndText extends StatelessWidget {
           width: 24,
         ),
         Text(
-          "Login with Google",
+          text,
           style: TextStyle(
             color: Theme.of(context).primaryColor,
             fontSize: 15,

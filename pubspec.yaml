@@ -12,6 +12,7 @@ dependencies:
 
   encryption_lib:
     git: "https://github.com/bienvenuelisis/connect_app_encryption_lib"
+  flutter_reactive_value: ^2.0.1
 
 dev_dependencies:
   flutter_test:
