@@ -1,3 +1,5 @@
+import 'package:connect_app/commons/widgets/log_in_with_google_icon_and_text.dart';
+import 'package:connect_app/commons/widgets/on_boarding_or_text_with_dividers.dart';
 import 'package:flutter/material.dart';
 
 class OnBoardingForm extends StatelessWidget {
@@ -72,20 +74,7 @@ class OnBoardingForm extends StatelessWidget {
           ),
           const _Gap(),
           const _Gap(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SizedBox(
-                width: size.width * 0.4,
-                child: const Divider(),
-              ),
-              const Text("OR"),
-              SizedBox(
-                width: size.width * 0.4,
-                child: const Divider(),
-              ),
-            ],
-          ),
+          const OnBoardingOrTextWithDividers(),
           const _Gap(),
           const _Gap(),
           ElevatedButton(
@@ -97,25 +86,7 @@ class OnBoardingForm extends StatelessWidget {
                 borderRadius: BorderRadius.circular(18),
               ),
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  "assets/images/google.png",
-                  width: 24,
-                ),
-                const SizedBox(
-                  width: 24,
-                ),
-                Text(
-                  "Login with Google",
-                  style: TextStyle(
-                    color: Theme.of(context).primaryColor,
-                    fontSize: 15,
-                  ),
-                ),
-              ],
-            ),
+            child: const LogInWithGoogleIconAndText(),
           ),
         ],
       ),
@@ -124,9 +95,7 @@ class OnBoardingForm extends StatelessWidget {
 }
 
 class _Gap extends StatelessWidget {
-  const _Gap({
-    super.key,
-  });
+  const _Gap();
 
   @override
   Widget build(BuildContext context) {

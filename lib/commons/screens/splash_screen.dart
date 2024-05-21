@@ -1,4 +1,4 @@
-import 'package:connect_app/android/functions/navigation.dart';
+import 'package:connect_app/commons/functions/navigation.dart';
 import 'package:connect_app/commons/layouts/multi_platform_widget.dart';
 import 'package:connect_app/commons/widgets/app_icon_and_title.dart';
 import 'package:flutter/material.dart';

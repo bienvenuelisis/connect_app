@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/app_icon_and_title.dart';
+
 class RoundedTopAppBarLayout extends StatelessWidget {
   const RoundedTopAppBarLayout({
     super.key,
-    required this.appBar,
     required this.body,
+    this.appBar,
   });
 
-  final Widget appBar;
+  final Widget? appBar;
   final Widget body;
 
   @override
@@ -32,7 +34,11 @@ class RoundedTopAppBarLayout extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: theme.primaryColor,
                   ),
-                  child: appBar,
+                  child: appBar ??
+                      Transform.scale(
+                        scale: 0.9,
+                        child: const AppIconAndTitle(),
+                      ),
                 ),
               ),
             ),

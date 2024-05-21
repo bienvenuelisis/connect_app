@@ -14,7 +14,7 @@ class MultiPlatformWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return android;
+    //return android;
     return Platform.isIOS ? ios : android;
   }
 }
