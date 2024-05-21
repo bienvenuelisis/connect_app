@@ -1,3 +1,4 @@
+import 'package:connect_app/commons/controllers/navigations/onboarding.dart';
 import 'package:connect_app/commons/widgets/gap.dart';
 import 'package:connect_app/commons/widgets/log_in_with_google_icon_and_text.dart';
 import 'package:connect_app/commons/widgets/on_boarding_or_text_with_dividers.dart';
@@ -71,7 +72,7 @@ class OnBoardingLoginForm extends StatelessWidget {
           const Gap(),
           Center(
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: context.navigateToHomePageAfterAuthentication,
               style: ElevatedButton.styleFrom(
                 fixedSize: Size(size.width - 24, 45),
                 backgroundColor: Theme.of(context).primaryColor,
@@ -94,7 +95,7 @@ class OnBoardingLoginForm extends StatelessWidget {
           const Gap(),
           const Gap(),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: context.navigateToHomePageAfterAuthentication,
             style: ElevatedButton.styleFrom(
               fixedSize: Size(size.width - 24, 45),
               backgroundColor: Colors.white,

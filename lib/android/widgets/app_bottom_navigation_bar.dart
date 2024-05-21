@@ -1,3 +1,4 @@
+import 'package:connect_app/commons/controllers/states/homepage.dart';
 import 'package:flutter/material.dart';
 
 class AppBottomNavigationBar extends StatelessWidget {
@@ -7,8 +8,16 @@ class AppBottomNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final selectedIndex =
+        bottomNavigationBarSelectedIndex.reactiveValue(context);
+
     return BottomNavigationBar(
       elevation: 6,
+      currentIndex: selectedIndex.index,
+      onTap: (index) {
+        bottomNavigationBarSelectedIndex.value =
+            BottomNavigationBarIndex.values[index];
+      },
       type: BottomNavigationBarType.fixed,
       items: const [
         BottomNavigationBarItem(
@@ -21,7 +30,7 @@ class AppBottomNavigationBar extends StatelessWidget {
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.attach_file_rounded),
-          label: "Cloud",
+          label: "Share",
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.settings),

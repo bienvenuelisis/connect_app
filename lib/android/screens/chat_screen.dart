@@ -26,7 +26,7 @@ class ChatScreen extends StatelessWidget {
           SizedBox(
             height: 12,
           ),
-          ChatsGroupTitle(title: "Favourites"),
+          ChatsGroupTitle(title: "Favorites"),
           ChatMessageTilePreview(),
           SizedBox(
             height: 12,

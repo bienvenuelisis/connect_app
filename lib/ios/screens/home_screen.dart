@@ -1,3 +1,4 @@
+import 'package:connect_app/commons/layouts/rounded_top_app_bar_layout.dart';
 import 'package:flutter/widgets.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -5,6 +6,8 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return RoundedTopAppBarLayout(
+      body: Container(),
+    );
   }
 }

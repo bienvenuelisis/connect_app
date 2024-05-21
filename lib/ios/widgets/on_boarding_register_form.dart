@@ -1,3 +1,4 @@
+import 'package:connect_app/commons/controllers/navigations/onboarding.dart';
 import 'package:connect_app/commons/widgets/gap.dart';
 import 'package:connect_app/commons/widgets/log_in_with_google_icon_and_text.dart';
 import 'package:connect_app/commons/widgets/on_boarding_or_text_with_dividers.dart';
@@ -110,7 +111,7 @@ class OnBoardingRegisterForm extends StatelessWidget {
               minWidth: size.width - 24,
             ),
             child: CupertinoButton.filled(
-              onPressed: () {},
+              onPressed: context.navigateToHomePageAfterAuthentication,
               child: const Text("Register"),
             ),
           ),
@@ -127,7 +128,7 @@ class OnBoardingRegisterForm extends StatelessWidget {
             ),
             child: CupertinoButton(
               color: Colors.white,
-              onPressed: () {},
+              onPressed: context.navigateToHomePageAfterAuthentication,
               child: const LogInWithGoogleIconAndText(
                 text: "Sign up with Google",
               ),
